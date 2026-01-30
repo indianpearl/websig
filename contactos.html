@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contactos — Custódio Benedito António</title>
+  <meta name="description" content="Página de contactos de Custódio Benedito António — email, telefone e formulário de contacto.">
+  <meta name="author" content="Custódio Benedito António">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Pequenos ajustes locais para o formulário (pode ficar em styles.css) */
+    .contact-wrap{display:grid;grid-template-columns:1fr 360px;gap:24px}
+    .contact-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .contact-form{display:flex;flex-direction:column;gap:10px}
+    .contact-form label{font-weight:600;font-size:0.95rem}
+    .contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);min-height:44px}
+    .contact-form textarea{min-height:140px;resize:vertical}
+    .contact-form .row{display:flex;gap:10px}
+    .contact-form .small{font-size:0.9rem;color:var(--muted)}
+    .btn-primary{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--accent-contrast);font-weight:700;border:0;cursor:pointer}
+    .btn-ghost{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);cursor:pointer}
+    .form-status{margin-top:8px;font-size:0.95rem;color:var(--muted)}
+    @media(max-width:980px){
+      .contact-wrap{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Saltar para o conteúdo</a>
+
+  <div class="page" role="document" aria-label="Contactos — Custódio Benedito António">
+    <div class="top-row">
+      <header class="site-header" role="banner">
+        <div class="header-inner">
+          <div class="brand" aria-hidden="false">
+            <img src="foto.png" alt="Fotografia de Custódio" class="profile-photo" onerror="this.style.opacity=0.6">
+            <div>
+              <h1>Custódio Benedito António</h1>
+              <p class="role">Contactos</p>
+            </div>
+          </div>
+
+          <nav class="site-nav" role="navigation" aria-label="Principal">
+            <ul>
+              <li><a href="inicio.html">Início</a></li>
+              <li><a href="formacao.html">Educação</a></li>
+              <li><a href="experiencia.html">Experiência</a></li>
+              <li><a href="projetos.html">Projetos</a></li>
+              <li><a href="contactos.html" aria-current="page">Contactos</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+        <button id="themeToggle" aria-pressed="false" title="Alternar tema" style="background:transparent;border:0;color:var(--muted)">Tema</button>
+      </div>
+    </div>
+
+    <main id="main" class="container" role="main" aria-labelledby="page-title">
+      <div class="left-column">
+        <header style="margin-bottom:12px">
+          <h2 id="page-title">Contacte-me</h2>
+          <p style="color:var(--muted);margin-top:6px">Se tiver uma proposta, dúvida ou quiser colaborar, envie uma mensagem através do formulário ou utilize os contactos diretos.</p>
+        </header>
+
+        <div class="contact-wrap">
+          <!-- Formulário -->
+          <section class="contact-card" aria-labelledby="form-title">
+            <h3 id="form-title">Formulário de contacto</h3>
+
+            <form id="contactForm" class="contact-form" action="#" method="post" novalidate>
+              <div>
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o seu nome" required aria-required="true" autocomplete="name">
+              </div>
+
+              <div>
+                <label for="email">E‑mail</label>
+                <input type="email" id="email" name="email" placeholder="nome@exemplo.com" required aria-required="true" autocomplete="email">
+              </div>
+
+              <div>
+                <label for="assunto">Assunto</label>
+                <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required aria-required="true">
+              </div>
+
+              <div>
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Escreva a sua mensagem" required aria-required="true"></textarea>
+              </div>
+
+              <div style="display:flex;gap:10px;align-items:center;margin-top:6px">
+                <button type="submit" class="btn-primary">Enviar Mensagem</button>
+                <button type="button" id="mailtoBtn" class="btn-ghost" title="Abrir no email">Enviar por email</button>
+              </div>
+
+              <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+
+              <p class="small" style="margin-top:10px;color:var(--muted)">Ao enviar, os seus dados serão usados apenas para responder à sua mensagem. Não partilharei os seus dados sem consentimento.</p>
+            </form>
+          </section>
+
+          <!-- Painel lateral com contactos diretos -->
+          <aside class="contact-card" aria-labelledby="direct-title">
+            <h4 id="direct-title">Contacto directo</h4>
+
+            <p style="margin:8px 0"><strong>Email</strong><br><a href="mailto:acbenet@gmail.com">meu email</a></p>
+            <p style="margin:8px 0"><strong>Telefone</strong><br><a href="tel:+258825687760">meu telefone</a></p>
+
+            <div style="margin-top:12px">
+              <h5 style="margin:0 0 8px 0">Redes</h5>
+              <div class="socials" style="display:flex;gap:8px">
+                <a href="https://github.com/indianpearl" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub</a>
+                <a href="https://www.linkedin.com/in/custodio-antonio-bba12225/" target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
+                <a href="https://orcid.org/0009-0008-0570-8581/" target="_blank" rel="noopener noreferrer" class="btn-ghost">ORCID</a>
+              </div>
+            </div>
+
+            <div style="margin-top:14px">
+              <h5 style="margin:0 0 8px 0">Localização</h5>
+              <p class="small" style="color:var(--muted)">Porto, Portugal</p>
+              <!-- Placeholder para mapa estático ou iframe se desejar -->
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer style="margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:0.9rem">
+      <div>© <strong>Custódio Benedito António</strong></div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a href="inicio.html" style="color:var(--muted)">Início</a>
+        <a href="projetos.html" style="color:var(--muted)">Projetos</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Menu móvel
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const nav = document.querySelector('nav.site-nav');
+      if(!menuToggle || !nav) return;
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          nav.style.display = 'block';
+          nav.style.position = 'absolute';
+          nav.style.right = '28px';
+          nav.style.top = '84px';
+          nav.style.background = 'rgba(2,6,23,0.6)';
+          nav.style.padding = '12px';
+          nav.style.borderRadius = '12px';
+        } else {
+          nav.style.display = '';
+          nav.style.position = '';
+          nav.style.right = '';
+          nav.style.top = '';
+          nav.style.background = '';
+          nav.style.padding = '';
+          nav.style.borderRadius = '';
+        }
+      });
+      document.addEventListener('click', (e) => {
+        if(!nav.contains(e.target) && !menuToggle.contains(e.target) && window.innerWidth < 980){
+          nav.style.display = '';
+          menuToggle.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+
+    // Theme toggle (light/dark)
+    (function(){
+      const btn = document.getElementById('themeToggle');
+      if(!btn) return;
+      const root = document.documentElement;
+      const LIGHT = {
+        '--bg':'#f7fafc',
+        '--card':'#ffffff',
+        '--muted':'#475569',
+        '--accent':'#0ea5e9',
+        '--accent-2':'#3b82f6',
+        '--glass':'rgba(2,6,23,0.03)',
+        '--text':'#0b1220'
+      };
+      function setTheme(vars){
+        if(!vars){ root.removeAttribute('data-theme'); return; }
+        root.setAttribute('data-theme','light');
+        for(const k in vars) root.style.setProperty(k, vars[k]);
+      }
+      btn.addEventListener('click', () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        if(isLight){ setTheme(null); btn.setAttribute('aria-pressed','false'); }
+        else { setTheme(LIGHT); btn.setAttribute('aria-pressed','true'); }
+      });
+    })();
+
+    // Form handling: validação simples e simulação de envio
+    (function(){
+      const form = document.getElementById('contactForm');
+      const statusEl = document.getElementById('formStatus');
+      const mailtoBtn = document.getElementById('mailtoBtn');
+
+      function showStatus(msg, ok = true){
+        statusEl.textContent = msg;
+        statusEl.style.color = ok ? '' : '#f87171';
+      }
+
+      form.addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        // validação nativa + extra
+        if(!form.checkValidity()){
+          form.reportValidity();
+          showStatus('Por favor corrija os campos em falta.', false);
+          return;
+        }
+        const data = {
+          nome: form.nome.value.trim(),
+          email: form.email.value.trim(),
+          assunto: form.assunto.value.trim(),
+          mensagem: form.mensagem.value.trim()
+        };
+        showStatus('A enviar mensagem…');
+        // Simulação de envio (substituir por integração real no servidor)
+        setTimeout(() => {
+          showStatus('Mensagem enviada. Obrigado — responderei em breve.');
+          form.reset();
+        }, 900);
+      });
+
+      // Botão mailto: abre cliente de email com conteúdo preenchido
+      mailtoBtn.addEventListener('click', () => {
+        const nome = encodeURIComponent(form.nome.value.trim() || '');
+        const email = encodeURIComponent(form.email.value.trim() || '');
+        const assunto = encodeURIComponent(form.assunto.value.trim() || 'Contacto via site');
+        const mensagem = encodeURIComponent((form.mensagem.value.trim() || '') + (nome ? `\n\nRemetente: ${nome}` : '') + (email ? `\nEmail: ${email}` : ''));
+        const to = 'teuemail@exemplo.com';
+        const href = `mailto:${to}?subject=${assunto}&body=${mensagem}`;
+        window.location.href = href;
+      });
+    })();
+
+    // Imagem fallback
+    (function(){
+      const img = document.querySelector('.profile-photo');
+      if(img){
+        img.addEventListener('error', ()=>{ img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="100%" height="100%" fill="%230b1220"/><text x="50%" y="50%" fill="%237dd3fc" font-size="20" font-family="Inter,Arial" text-anchor="middle" alignment-baseline="middle">Foto</text></svg>'; });
+      }
+    })();
+  </script>
+</body>
+</html>
