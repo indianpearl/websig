@@ -1125,4 +1125,5 @@ const addEcopontoBtn = document.getElementById('addEcopontoBtn');
 if (addEcopontoBtn) addEcopontoBtn.addEventListener('click', () => toggleAddEcopontoMode());
 
 // ===== Fim das funções de adição manual =====
-//loadEcopontosFromServer();
+
+loadEcopontosFromServer();
