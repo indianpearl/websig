@@ -1,0 +1,360 @@
+/* ===============================
+   RESET & VARIÁVEIS (ACADÉMICO)
+================================ */
+:root{
+  --bg:#f4f7fb;
+  --page:#ffffff;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#6b7280;
+  --border:#e5eaf1;
+  --accent:#1e40af;         /* azul institucional */
+  --accent-2:#2563eb;
+  --accent-contrast:#ffffff;
+  --glass:rgba(15,23,42,0.03);
+  --radius:14px;
+  --max-width:1100px;
+  --shadow:0 8px 24px rgba(15,23,42,0.06);
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0;
+  height:100%;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  color:var(--text);
+  background:linear-gradient(180deg,#f6f9fd 0%, #eef3f9 100%);
+}
+
+/* ===============================
+   ELEMENTOS BASE
+================================ */
+a{
+  color:var(--accent);
+  text-decoration:none;
+}
+a:hover{ text-decoration:underline; }
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+/* ===============================
+   LAYOUT PRINCIPAL
+================================ */
+.page{
+  margin-right: 0;
+  padding:28px;
+  background:var(--page);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+
+/* ===============================
+   HEADER
+================================ */
+.top-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-bottom:24px;
+}
+
+.site-header{
+  width:100%;
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.profile-photo{
+  width:72px;
+  height:72px;
+  border-radius:12px;
+  object-fit:cover;
+  border:2px solid var(--border);
+}
+
+.brand h1{
+  margin:0;
+  font-size:1.2rem;
+  font-weight:700;
+}
+
+.brand .role{
+  margin:4px 0 0;
+  font-size:0.92rem;
+  color:var(--muted);
+  max-width:520px;
+}
+
+/* ===============================
+   NAV
+================================ */
+.site-nav ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  gap:14px;
+}
+
+.site-nav a{
+  font-size:0.95rem;
+  font-weight:600;
+  color:#334155;
+  padding:6px 10px;
+  border-radius:8px;
+}
+
+.site-nav a:hover{
+  background:#eef2f7;
+}
+
+/* botão mobile */
+.menu-toggle{
+  display:none;
+  background:#ffffff;
+  border:1px solid var(--border);
+  padding:6px 10px;
+  border-radius:10px;
+  color:var(--muted);
+}
+
+/* ===============================
+   GRID PRINCIPAL
+================================ */
+main.container{
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:28px;
+}
+
+/* ===============================
+   COLUNAS
+================================ */
+.left-column,
+.right-column{
+  background:var(--card);
+  border-radius:14px;
+  padding:18px;
+  border:1px solid var(--border);
+}
+
+/* ===============================
+   HERO
+================================ */
+.hero h2{
+  margin:0 0 6px;
+  font-family:"Source Serif 4", serif;
+  font-size:1.25rem;
+  font-weight:600;
+}
+
+.hero p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.cta{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 14px;
+  border-radius:10px;
+  background:var(--accent);
+  color:var(--accent-contrast);
+  font-weight:600;
+}
+
+/* ===============================
+   SKILLS
+================================ */
+.highlights{
+  margin-top:20px;
+}
+
+.skill-list{
+  list-style:none;
+  padding:0;
+  margin:10px 0 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.skill-list li{
+  background:#f1f5f9;
+  color:#334155;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:0.85rem;
+  font-weight:500;
+}
+
+/* ===============================
+   CARDS
+================================ */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:10px;
+}
+
+.card{
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+}
+
+.card h4{
+  margin:0 0 6px;
+  font-size:1rem;
+}
+
+.card p{
+  margin:0;
+  font-size:0.9rem;
+  color:var(--muted);
+}
+
+.card a{
+  display:inline-block;
+  margin-top:8px;
+  font-weight:600;
+}
+
+/* ===============================
+   PROJETOS
+================================ */
+.project-card{
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+}
+
+.project-card h5{
+  margin:0 0 4px;
+  font-size:1rem;
+}
+
+.project-meta{
+  font-size:0.85rem;
+  color:var(--muted);
+}
+
+/* ===============================
+   ASIDE
+================================ */
+.section-box{
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+  margin-bottom:14px;
+}
+
+.section-box h4{
+  margin:0 0 8px;
+  font-size:0.95rem;
+}
+
+.links-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.link-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px;
+  border-radius:10px;
+  background:#f8fafc;
+  font-size:0.9rem;
+  color:#334155;
+}
+
+.link-item:hover{
+  background:#eef2f7;
+}
+
+/* ===============================
+   REDES SOCIAIS — ACADÉMICO
+================================ */
+.socials{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.socials .btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 12px;
+  font-size:0.85rem;
+  font-weight:500;
+  color:#1e293b;
+  background:#f1f5f9;
+  border:1px solid #e2e8f0;
+  border-radius:999px;
+  transition:background 0.2s ease, border-color 0.2s ease;
+}
+
+.socials .btn-ghost:hover{
+  background:#e9eef6;
+  border-color:#cbd5e1;
+  text-decoration:none;
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+footer{
+  margin-top:28px;
+  padding-top:16px;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  font-size:0.85rem;
+  color:var(--muted);
+}
+
+/* ===============================
+   RESPONSIVO
+================================ */
+@media(max-width:980px){
+  main.container{
+    grid-template-columns:1fr;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .site-nav{
+    display:none;
+  }
+
+  .menu-toggle{
+    display:inline-block;
+  }
+}

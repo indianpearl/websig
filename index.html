@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Custódio Benedito António — Início</title>
+  <meta name="description" content="Currículo de Custódio Benedito António — Mestrado em Sistemas de Informação Geográfica e Ordenamento do Território.">
+  <meta name="author" content="Custódio Benedito António">
+  <meta property="og:title" content="Custódio Benedito António — Início">
+  <meta property="og:description" content="Mestrado em Sistemas de Informação Geográfica e Ordenamento do Território. Portfólio e contactos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Saltar para o conteúdo</a>
+
+  <div class="page" role="document" aria-label="Página pessoal de Custódio Benedito António">
+    <div class="top-row">
+      <header class="site-header" role="banner">
+        <div class="header-inner">
+          <div class="brand" aria-hidden="false">
+            <img src="foto.png" alt="Fotografia de Custódio" class="profile-photo" onerror="this.style.opacity=0.6">
+            <div>
+              <h1>Custódio Benedito António</h1>
+              <p class="role">Mestrado em Sistemas de Informação Geográfica e Ordenamento do Território</p>
+            </div>
+          </div>
+
+          <nav class="site-nav" role="navigation" aria-label="Principal">
+            <ul>
+              <li><a href="inicio.html">Início</a></li>
+              <li><a href="formacao.html">Educação</a></li>
+              <li><a href="experiencia.html">Experiência Profissional</a></li>
+              <li><a href="projetos.html">Projetos</a></li>
+              <li><a href="contactos.html">Contactos</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+        <button id="themeToggle" aria-pressed="false" title="Alternar tema" style="background:transparent;border:0;color:var(--muted)">Tema</button>
+      </div>
+    </div>
+
+    <main id="main" class="container" role="main">
+      <section class="left-column" aria-labelledby="hero-title">
+        <section class="hero" aria-labelledby="hero-title">
+          <h2 id="hero-title">Objetivo profissional</h2>
+          <p>Tornar a Intellindicus uma referência nacional e regional em análise de riscos e estudos de mercado, aplicando SIG, análise espacial e modelação de dados.</p>
+          <a class="cta" href="experiencia.html">Ver experiência</a>
+        </section>
+
+        <section class="highlights" aria-labelledby="highlights-title">
+          <h3 id="highlights-title">Competências principais</h3>
+          <ul class="skill-list" aria-hidden="false">
+            <li>ArcGIS Pro — Intermédio/Avançado</li>
+            <li>QGIS — Intermédio</li>
+            <li>Python — Intermédio</li>
+            <li>HTML / CSS — Intermédio</li>
+            <li>SQL — Básico/Intermédio</li>
+          </ul>
+        </section>
+
+        <section class="quick-links" aria-labelledby="ql-title">
+          <h3 id="ql-title">Acesso rápido</h3>
+          <div class="cards" role="list">
+            <article class="card" role="listitem">
+              <h4>Formação</h4>
+              <p>Licenciatura em Ciências de Informação Geográfica — Universidade Eduardo Mondlane (2007–2012).</p>
+              <a href="formacao.html" aria-label="Saber mais sobre formação">Saber mais</a>
+            </article>
+
+            <article class="card" role="listitem">
+              <h4>Projetos</h4>
+              <p>Trabalhos académicos e projetos aplicados em Sistemas de Informação Geográfica.</p>
+              <a href="projetos.html" aria-label="Ver projetos">Ver projetos</a>
+            </article>
+
+            <article class="card" role="listitem">
+              <h4>Contactos</h4>
+              <p>Telefone e email para contacto profissional.</p>
+              <a href="contactos.html" aria-label="Contacte-me">Contacte-me</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="projects" aria-labelledby="projects-title" style="margin-top:18px">
+          <h3 id="projects-title">Destaques de projetos</h3>
+
+          <div class="projects" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <article class="project-card" aria-labelledby="p1">
+              <h5 id="p1">Mapeamento de Risco Urbano</h5>
+              <div class="project-meta">QGIS · Python · Análise espacial</div>
+              <p style="color:var(--muted);margin-top:8px">Modelação de vulnerabilidade e visualização interativa para apoio à decisão municipal.</p>
+              <a href="projetos.html#mapa-risco" class="cta" style="margin-top:8px;display:inline-block">Ver projeto</a>
+            </article>
+
+            <article class="project-card" aria-labelledby="p2">
+              <h5 id="p2">Estudo de Mercado Regional</h5>
+              <div class="project-meta">ArcGIS Pro · SQL · Relatório</div>
+              <p style="color:var(--muted);margin-top:8px">Análise de acessibilidade e segmentação de mercado para expansão de serviços.</p>
+              <a href="projetos.html#estudo-mercado" class="cta" style="margin-top:8px;display:inline-block">Ver projeto</a>
+            </article>
+          </div>
+        </section>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <strong>Custódio Benedito António</strong> — <span style="color:var(--muted)">Mestrado em SIG</span></div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a href="contactos.html" style="color:var(--muted)">Contactos</a>
+        <a href="projetos.html" style="color:var(--muted)">Projetos</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const nav = document.querySelector('nav.site-nav');
+      if(!menuToggle || !nav) return;
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          nav.style.display = 'block';
+          nav.style.position = 'absolute';
+          nav.style.right = '28px';
+          nav.style.top = '84px';
+          nav.style.background = 'rgba(2,6,23,0.6)';
+          nav.style.padding = '12px';
+          nav.style.borderRadius = '12px';
+        } else {
+          nav.style.display = '';
+          nav.style.position = '';
+          nav.style.right = '';
+          nav.style.top = '';
+          nav.style.background = '';
+          nav.style.padding = '';
+          nav.style.borderRadius = '';
+        }
+      });
+      document.addEventListener('click', (e) => {
+        if(!nav.contains(e.target) && !menuToggle.contains(e.target) && window.innerWidth < 980){
+          nav.style.display = '';
+          menuToggle.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+
+    // Theme toggle (light/dark)
+    (function(){
+      const btn = document.getElementById('themeToggle');
+      if(!btn) return;
+      const root = document.documentElement;
+      const LIGHT = {
+        '--bg':'#f7fafc',
+        '--card':'#ffffff',
+        '--muted':'#475569',
+        '--accent':'#0ea5e9',
+        '--accent-2':'#3b82f6',
+        '--glass':'rgba(2,6,23,0.03)',
+        '--text':'#0b1220'
+      };
+      function setTheme(vars){
+        if(!vars){ root.removeAttribute('data-theme'); return; }
+        root.setAttribute('data-theme','light');
+        for(const k in vars) root.style.setProperty(k, vars[k]);
+      }
+      btn.addEventListener('click', () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        if(isLight){ setTheme(null); btn.setAttribute('aria-pressed','false'); }
+        else { setTheme(LIGHT); btn.setAttribute('aria-pressed','true'); }
+      });
+    })();
+
+    // Image fallback
+    (function(){
+      const img = document.querySelector('.profile-photo');
+      if(img){
+        img.addEventListener('error', ()=>{ img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="100%" height="100%" fill="%230b1220"/><text x="50%" y="50%" fill="%237dd3fc" font-size="20" font-family="Inter,Arial" text-anchor="middle" alignment-baseline="middle">Foto</text></svg>'; });
+      }
+    })();
+  </script>
+</body>
+</html>

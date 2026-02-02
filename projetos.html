@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projetos — Custódio Benedito António</title>
+  <meta name="description" content="Portfólio de projetos de Custódio Benedito António — SIG, análise espacial, estudos de risco e aplicações webmapping.">
+  <meta name="author" content="Custódio Benedito António">
+  <meta property="og:title" content="Projetos — Custódio Benedito António">
+  <meta property="og:description" content="Portfólio de projetos em SIG, modelação de risco e aplicações webmapping.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Saltar para o conteúdo</a>
+
+  <div class="page" role="document" aria-label="Projetos — Custódio Benedito António">
+    <div class="top-row">
+      <header class="site-header" role="banner">
+        <div class="header-inner">
+          <div class="brand" aria-hidden="false">
+            <img src="foto.png" alt="Fotografia de Custódio" class="profile-photo" onerror="this.style.opacity=0.6">
+            <div>
+              <h1>Custódio Benedito António</h1>
+              <p class="role">Projetos · SIG · Webmapping</p>
+            </div>
+          </div>
+
+          <nav class="site-nav" role="navigation" aria-label="Principal">
+            <ul>
+              <li><a href="inicio.html">Início</a></li>
+              <li><a href="formacao.html">Educação</a></li>
+              <li><a href="experiencia.html">Experiência</a></li>
+              <li><a href="projetos.html" aria-current="page">Projetos</a></li>
+              <li><a href="contactos.html">Contactos</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+        <button id="themeToggle" aria-pressed="false" title="Alternar tema" style="background:transparent;border:0;color:var(--muted)">Tema</button>
+      </div>
+    </div>
+
+    <main id="main" class="container" role="main" aria-labelledby="projects-title">
+      <div class="left-column">
+        <header style="margin-bottom:12px">
+          <h2 id="projects-title">Projetos selecionados</h2>
+          <p style="color:var(--muted);margin-top:6px">Coleção de trabalhos académicos e profissionais: aplicações SIG, estudos de risco, dashboards e ferramentas web.</p>
+        </header>
+
+        <section class="controls" style="display:flex;gap:10px;align-items:center;margin-bottom:14px">
+          <input id="projectSearch" type="search" placeholder="Pesquisar projetos (ex.: risco, Maputo, ORS)" style="flex:1;padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)">
+          <select id="projectFilter" style="padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)">
+            <option value="">Filtrar por categoria</option>
+            <option value="websig">WebSIG</option>
+            <option value="analise">Análise espacial</option>
+            <option value="relatorio">Relatório</option>
+            <option value="script">Automação / Python</option>
+          </select>
+        </section>
+
+        <section id="projectsGrid" class="projects" aria-live="polite">
+          <!-- Project cards (editable) -->
+          <article class="project-card" data-title="WebSIG Gestão Resíduos Maputo" data-cats="websig,analise">
+            <h5>WebSIG para Gestão de Resíduos Sólidos — Maputo</h5>
+            <div class="project-meta">WebSIG · QGIS · GeoServer · JavaScript</div>
+            <p style="color:var(--muted);margin-top:8px">Aplicação web para visualização e gestão de pontos de recolha, com relatórios de cobertura e mapas temáticos.</p>
+            <div style="display:flex;gap:8px;margin-top:10px">
+              <a href="websig.html" target="_blank" rel="noopener noreferrer" class="cta" style="padding:8px 10px;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--accent-contrast);font-weight:700">Abrir</a>
+              <a href="projetos.html#websig-maputo" class="cta" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)">Detalhes</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-title="project" data-cats="analise,relatorio">
+            <h5>Story Maps</h5>
+            <div class="project-meta">ArcGIS pro</div>
+            <p style="color:var(--muted);margin-top:8px">Uma pequena história de Moçambique.</p>
+            <div style="display:flex;gap:8px;margin-top:10px">
+              <a href="https://arcg.is/1vSyrj5" class="cta" style="padding:8px 10px;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--accent-contrast);font-weight:700">Ver Story Maps</a>
+                          </div>
+          </article>
+
+          <article class="project-card" data-title="Estudo de Mercado Regional" data-cats="analise,relatorio">
+            <h5>Estudo de Mercado Regional</h5>
+            <div class="project-meta">ArcGIS Pro · SQL · Relatório</div>
+            <p style="color:var(--muted);margin-top:8px">Análise de acessibilidade e segmentação de mercado para expansão de serviços.</p>
+            <div style="display:flex;gap:8px;margin-top:10px">
+              <a href="projetos.html#estudo-mercado" class="cta" style="padding:8px 10px;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--accent-contrast);font-weight:700">Ver projeto</a>
+              <a href="#" class="cta" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)">Dados</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-title="Scripts Python para SIG" data-cats="script">
+            <h5>Automação com Python para SIG</h5>
+            <div class="project-meta">Python · GDAL · Pandas</div>
+            <p style="color:var(--muted);margin-top:8px">Coleção de scripts para processamento de dados geoespaciais, limpeza e geração de relatórios automatizados.</p>
+            <div style="display:flex;gap:8px;margin-top:10px">
+              <a href="#" class="cta" style="padding:8px 10px;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:var(--accent-contrast);font-weight:700">Ver repositório</a>
+              <a href="#" class="cta" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)">Exemplos</a>
+            </div>
+          </article>
+        </section>
+      </div>
+
+      <aside class="right-column" role="complementary" aria-label="Painel lateral">
+        <div class="section-box">
+          <h4>Resumo</h4>
+          <p style="color:var(--muted);margin:6px 0">Aqui estão projetos selecionados que demonstram competências em SIG, análise espacial, desenvolvimento web e produção de relatórios técnicos.</p>
+        </div>
+
+        <div class="section-box">
+          <h4>Etiquetas</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <button class="tagBtn" data-filter="all" style="padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);color:var(--muted)">Todos</button>
+            <button class="tagBtn" data-filter="websig" style="padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);color:var(--muted)">WebSIG</button>
+            <button class="tagBtn" data-filter="analise" style="padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);color:var(--muted)">Análise</button>
+            <button class="tagBtn" data-filter="relatorio" style="padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);color:var(--muted)">Relatório</button>
+            <button class="tagBtn" data-filter="script" style="padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);color:var(--muted)">Script</button>
+          </div>
+        </div>
+
+        <div class="section-box">
+          <h4>Contacto para projetos</h4>
+          <p style="color:var(--muted);margin:6px 0">Interessado em colaborar ou contratar serviços? <a href="contactos.html">Contacte-me</a>.</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer style="margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:0.9rem">
+      <div>© <strong>Custódio Benedito António</strong></div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a href="inicio.html" style="color:var(--muted)">Início</a>
+        <a href="contactos.html" style="color:var(--muted)">Contactos</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu
+    (function(){
+      const menuToggle = document.getElementById('menuToggle');
+      const nav = document.querySelector('nav.site-nav');
+      if(!menuToggle || !nav) return;
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!expanded));
+        if(!expanded){
+          nav.style.display = 'block';
+          nav.style.position = 'absolute';
+          nav.style.right = '28px';
+          nav.style.top = '84px';
+          nav.style.background = 'rgba(2,6,23,0.6)';
+          nav.style.padding = '12px';
+          nav.style.borderRadius = '12px';
+        } else {
+          nav.style.display = '';
+          nav.style.position = '';
+          nav.style.right = '';
+          nav.style.top = '';
+          nav.style.background = '';
+          nav.style.padding = '';
+          nav.style.borderRadius = '';
+        }
+      });
+      document.addEventListener('click', (e) => {
+        if(!nav.contains(e.target) && !menuToggle.contains(e.target) && window.innerWidth < 980){
+          nav.style.display = '';
+          menuToggle.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+
+    // Theme toggle (light/dark)
+    (function(){
+      const btn = document.getElementById('themeToggle');
+      if(!btn) return;
+      const root = document.documentElement;
+      const LIGHT = {
+        '--bg':'#f7fafc',
+        '--card':'#ffffff',
+        '--muted':'#475569',
+        '--accent':'#0ea5e9',
+        '--accent-2':'#3b82f6',
+        '--glass':'rgba(2,6,23,0.03)',
+        '--text':'#0b1220'
+      };
+      function setTheme(vars){
+        if(!vars){ root.removeAttribute('data-theme'); return; }
+        root.setAttribute('data-theme','light');
+        for(const k in vars) root.style.setProperty(k, vars[k]);
+      }
+      btn.addEventListener('click', () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        if(isLight){ setTheme(null); btn.setAttribute('aria-pressed','false'); }
+        else { setTheme(LIGHT); btn.setAttribute('aria-pressed','true'); }
+      });
+    })();
+
+    // Project filtering and search
+    (function(){
+      const grid = document.getElementById('projectsGrid');
+      const cards = Array.from(grid.querySelectorAll('.project-card'));
+      const search = document.getElementById('projectSearch');
+      const filter = document.getElementById('projectFilter');
+      const tagBtns = Array.from(document.querySelectorAll('.tagBtn'));
+
+      function normalize(s){ return (s||'').toString().toLowerCase(); }
+
+      function applyFilters(){
+        const q = normalize(search.value);
+        const cat = normalize(filter.value);
+        cards.forEach(card => {
+          const title = normalize(card.dataset.title || card.querySelector('h5')?.textContent);
+          const cats = normalize(card.dataset.cats || '');
+          const matchesQuery = !q || title.includes(q) || cats.includes(q);
+          const matchesCat = !cat || cats.split(',').includes(cat);
+          card.style.display = (matchesQuery && matchesCat) ? '' : 'none';
+        });
+      }
+
+      search.addEventListener('input', applyFilters);
+      filter.addEventListener('change', applyFilters);
+
+      tagBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const f = btn.dataset.filter;
+          if(f === 'all') { filter.value = ''; }
+          else { filter.value = f; }
+          applyFilters();
+        });
+      });
+    })();
+
+    // Image fallback
+    (function(){
+      const img = document.querySelector('.profile-photo');
+      if(img){
+        img.addEventListener('error', ()=>{ img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="100%" height="100%" fill="%230b1220"/><text x="50%" y="50%" fill="%237dd3fc" font-size="20" font-family="Inter,Arial" text-anchor="middle" alignment-baseline="middle">Foto</text></svg>'; });
+      }
+    })();
+  </script>
+</body>
+</html>

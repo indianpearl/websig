@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>WebSIG para Gestão de Recolha de Resíduos Sólidos - Maputo</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+ <link rel="stylesheet" href="websigestilos.css" />
+
+
+</head>
+<body>
+  <header>
+    <div class="top-controls">
+      <label class="btn" style="display:inline-flex;align-items:center;gap:8px">Selecionar GeoJSON
+        <input id="fileInput" type="file" accept=".geojson,.json" style="display:none">
+      </label>
+      <!-- Botão para ativar modo de adicionar ecoponto -->
+      <button id="addEcopontoBtn" class="btn">Adicionar ecoponto</button>
+      <button id="generateBtn" class="btn">Gerar rotas (todos)</button>
+           <button id="stopBtn" class="btn" disabled>Parar</button>
+      <button id="exportBtn" class="btn" disabled>Exportar rotas (.geojson)</button>
+    </div>
+    <div class="titulo">WebSIG para Gestão de Recolha de Resíduos Sólidos - Maputo</div>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar esquerda -->
+    <aside class="sidebar-left" aria-label="Sidebar de configuração">
+      <div class="section">
+        <h3>Configuração</h3>
+        <label for="orsKey">ORS API Key</label>
+        <input id="orsKey" type="text" placeholder="Cole aqui a sua ORS API key">
+        <label for="orsProfile" style="margin-top:8px">Perfil ORS</label>
+        <select id="orsProfile"><option value="driving-car">driving-car</option><option value="driving-hgv">driving-hgv</option><option value="cycling-regular">cycling-regular</option><option value="foot-walking">foot-walking</option></select>
+        <label style="margin-top:8px">Depósito (lat)</label><input id="depotLat" type="number" step="any" placeholder="-25.9653">
+        <label style="margin-top:8px">Depósito (lon)</label><input id="depotLon" type="number" step="any" placeholder="32.5892">
+      </div>
+
+      <div class="section">
+        <h3>Pesquisa e filtros</h3>
+        <label for="codeSearch">Pesquisar por código (parte do texto)</label>
+        <input id="codeSearch" type="text" placeholder="ex.: P001 ou 001">
+        <label style="margin-top:8px">Filtrar por estado (select — único)</label>
+        <select id="stateSelect"><option value="">— Todos os estados —</option></select>
+        <label style="margin-top:8px">Filtrar por estado (checkboxes — múltipla)</label>
+        <div id="statesBox" class="states-box" aria-live="polite"><div class="muted">Carregue um GeoJSON para popular a lista de estados.</div></div>
+        <div class="note" style="margin-top:8px">Se houver checkboxes marcados, a filtragem usa os checkboxes (múltipla). Caso contrário usa o select (único).</div>
+      </div>
+
+      <div class="section">
+        <h3>Opções</h3>
+        <label for="delayMs">Delay entre pedidos (ms)</label>
+        <input id="delayMs" type="number" value="600" min="0">
+        <label style="margin-top:8px">Limiar de cheio (%)</label>
+        <div class="row"><input id="fullThreshold" type="number" min="0" max="100" value="90"><div class="small" id="thresholdLabel">90%</div></div>
+        <div class="note" style="margin-top:6px">Limiar de cheio usado para decidir se um contentor está cheio. Limiar de vazio fixo: 20%.</div>
+      </div>
+
+      <div class="section">
+        <h3>Legenda e filtros por categoria</h3>
+        <div class="legend" id="legendBox">
+          <div class="legend-item"><div class="legend-left"><span class="swatch" style="background:#1f77b4"></span><span class="small">Plástico</span></div><div style="display:flex;gap:8px;align-items:center"><span class="muted" id="count_plastico">0</span><input type="checkbox" class="catCheckbox" value="plastico" id="cat_plastico" checked></div></div>
+          <div class="legend-item"><div class="legend-left"><span class="swatch" style="background:#2ca02c"></span><span class="small">Papel</span></div><div style="display:flex;gap:8px;align-items:center"><span class="muted" id="count_papel">0</span><input type="checkbox" class="catCheckbox" value="papel" id="cat_papel" checked></div></div>
+          <div class="legend-item"><div class="legend-left"><span class="swatch" style="background:#d62728"></span><span class="small">Metal</span></div><div style="display:flex;gap:8px;align-items:center"><span class="muted" id="count_metal">0</span><input type="checkbox" class="catCheckbox" value="metal" id="cat_metal" checked></div></div>
+          <div class="legend-item"><div class="legend-left"><span class="swatch" style="background:#9467bd"></span><span class="small">Vidro</span></div><div style="display:flex;gap:8px;align-items:center"><span class="muted" id="count_vidro">0</span><input type="checkbox" class="catCheckbox" value="vidro" id="cat_vidro" checked></div></div>
+          <div class="legend-item"><div class="legend-left"><span class="swatch" style="background:#7f7f7f"></span><span class="small">Indiferenciado</span></div><div style="display:flex;gap:8px;align-items:center"><span class="muted" id="count_indiferenciado">0</span><input type="checkbox" class="catCheckbox" value="indiferenciado" id="cat_indiferenciado" checked></div></div>
+        </div>
+        <div class="note" style="margin-top:8px">Os números mostram quantos ecopontos existem por categoria (após aplicação dos filtros).</div>
+      </div>
+
+      <div class="section">
+        <h3>Estado</h3>
+        <div class="status-box"><div><strong>Estado atual:</strong></div><div style="margin-top:8px"><span id="statusText" class="small">pronto</span></div></div>
+      </div>
+
+      <div class="section">
+        <h3>Registo</h3>
+        <div id="log" style="font-size:0.9rem;color:#444;max-height:220px;overflow:auto;padding:8px;border-radius:6px;background:#fbfbfb;border:1px solid #eee"></div>
+      </div>
+    </aside>
+
+    <!-- Mapa central -->
+    <main class="map-wrap"><div id="map" aria-label="Mapa com ecopontos e rotas"></div></main>
+
+    <!-- Sidebar direita -->
+    <aside class="sidebar-right" aria-label="Sidebar de camadas">
+      <div id="summaryPanel" class="section">
+        <h3>Resumo</h3>
+        <div class="small">Rotas visíveis: <strong id="sumRoutes">0</strong></div>
+        <div class="small">Distância total: <strong id="sumDist">0 km</strong></div>
+        <div class="small">Duração total: <strong id="sumDur">0 min</strong></div>
+      </div>
+
+      <div class="section">
+        <h3>Operação</h3>
+               <div style="margin-top:8px;display:flex;gap:8px">
+          <button id="startOpBtn" class="btn">Iniciar</button>
+          <button id="abortOpBtn" class="btn" disabled>Abortar</button>
+        </div>
+        <div style="margin-top:8px" class="small">Viaturas ativas: <span id="activeVehicles">0</span> / 30</div>
+      </div>
+
+      <div class="section">
+  <h3>Viaturas</h3>
+  <div class="small">Camada de viaturas e controlo manual</div>
+
+  <div class="controls" aria-hidden="false">
+    <div class="btn-row">
+      <button id="showAllVehiclesBtn" class="btn" type="button" aria-controls="vehicleList">Mostrar todas</button>
+      <button id="hideAllVehiclesBtn" class="btn" type="button" aria-controls="vehicleList">Ocultar todas</button>
+    </div>
+    <div class="small" style="margin-top:8px">Ativar viaturas</div>
+    <div class="status small" id="vehicleStatus" aria-live="polite">0 / 0</div>
+  </div>
+
+  <div id="vehicleList" class="vehicle-list" aria-live="polite">
+    <div class="muted">Carregando viaturas…</div>
+  </div>
+</div>
+
+       <div class="section">
+        <h3>Camadas</h3>
+        <div class="small">Mostrar/ocultar camadas</div>
+        <div class="layer-toggle"><input id="toggleEcopontos" type="checkbox" checked><label for="toggleEcopontos" class="small">Ecopontos</label></div>
+        <div class="layer-toggle"><input id="toggleRotas" type="checkbox" checked><label for="toggleRotas" class="small">Rotas</label></div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+      <script src="app.js"></script>
+  </body>
+</html>
