@@ -468,7 +468,7 @@ function delay(ms) {
 map.whenReady(() => {
   // ajusta serverPath se necessário
   loadEcopontosFromServer({
-    serverPath: '/rotas/ecopontos.geojson',
+    serverPath: 'ecopontos.geojson',
     layer: ecopontosLayer,
     addFunction: renderEcopontos,
     cacheBust: true // força evitar cache durante desenvolvimento
@@ -1234,3 +1234,4 @@ if (addEcopontoBtn) addEcopontoBtn.addEventListener('click', () => toggleAddEcop
 
 // ===== Fim das funções de adição manual =====
 loadEcopontosFromServer();
+
