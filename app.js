@@ -11,7 +11,6 @@
     // UI refs
     const fileInput = document.getElementById('fileInput');
     const generateBtn = document.getElementById('generateBtn');
-    const operationBtn = document.getElementById('operationBtn');
     const startOpBtn = document.getElementById('startOpBtn');
     const abortOpBtn = document.getElementById('abortOpBtn');
     const stopBtn = document.getElementById('stopBtn');
@@ -468,7 +467,7 @@ function delay(ms) {
 map.whenReady(() => {
   // ajusta serverPath se necessário
   loadEcopontosFromServer({
-    serverPath: 'ecopontos.geojson',
+    serverPath: 'ecopontos.geojson.json',
     layer: ecopontosLayer,
     addFunction: renderEcopontos,
     cacheBust: true // força evitar cache durante desenvolvimento
@@ -837,8 +836,8 @@ map.whenReady(() => {
         const segments = (v.assignedRoutes && v.assignedRoutes.length) ? buildVehiclePathSegmentsFromAssignedRoutes(v) : buildVehiclePathSegments(v);
         if (!segments.length) return;
         await animateVehicleAlongPath(v, segments, { speedFactor: 1.0 });
-        const depotLat = Number(depotLatEl.value) || MAP_CENTER[0];
-        const depotLon = Number(depotLonEl.value) || MAP_CENTER[1];
+        const depotLat = Number(depotLatEl.value);
+        const depotLon = Number(depotLonEl.value);
         const offsetLat = depotLat + (Math.random()*0.0004 - 0.0002);
         const offsetLon = depotLon + (Math.random()*0.0004 - 0.0002);
         if (v.marker) v.marker.setLatLng([offsetLat, offsetLon]);
@@ -1234,5 +1233,6 @@ if (addEcopontoBtn) addEcopontoBtn.addEventListener('click', () => toggleAddEcop
 
 // ===== Fim das funções de adição manual =====
 loadEcopontosFromServer();
+
 
 
