@@ -366,7 +366,7 @@ createVehicles();
     }
     /* --- Loader automático de ecopontos a partir do servidor --- */
 async function loadEcopontosFromServer(options = {}) {
-  const serverPath = options.serverPath || 'ecopontos.geojson';
+  const serverPath = options.serverPath || 'ecopontos.geojson.json';
   // usa a camada e a função de renderização existentes
   const layer = options.layer || window.ecopontosLayer || ecopontosLayer;
   const addFn = options.addFunction || window.renderEcopontos || renderEcopontos;
@@ -1234,4 +1234,5 @@ if (addEcopontoBtn) addEcopontoBtn.addEventListener('click', () => toggleAddEcop
 
 // ===== Fim das funções de adição manual =====
 loadEcopontosFromServer();
+
 
